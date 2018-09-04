@@ -62,7 +62,21 @@ class Customer
     end
 
     total
+
+    #could have been done easier rushed for time.
   end
+
+  def helper
+    Review.all.select |review|
+      review.customer == self
+  end
+
+  def retaurants(helper)
+    helper.uniq
+  end
+
+
+
 
 
 end
