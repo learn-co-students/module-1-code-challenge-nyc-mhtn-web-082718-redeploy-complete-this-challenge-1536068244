@@ -55,10 +55,10 @@ We've provided you with a console that you can use to test your code. To enter a
   - returns all of the reviews
 - `Review#customer`
   - returns the customer object for that given review
-  - Once a review is created, I should not be able to change the author
+  - Once a review is created, I should not be able to change the author  (attr reader!)
 - `Review#restaurant`
   - returns the restaurant object for that given review
-  - Once a review is created, I should not be able to change the restaurant
+  - Once a review is created, I should not be able to change the restaurant (attr reader!)
 - `Review#rating`
   - returns the star rating for a restaurant. This should be an integer from 1-5
 - `Review#content`
