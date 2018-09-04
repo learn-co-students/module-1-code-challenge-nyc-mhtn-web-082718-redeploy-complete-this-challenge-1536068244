@@ -50,7 +50,7 @@ class Customer
 
   def add_review(restaurant, content, rating)
     # - given a **restaurant object**, some review content (as a string), and a star rating (as an integer), creates a new review and associates it with that customer and restaurant.
-    
+
     Review.new(self, restaurant, rating, content)
   end
 
@@ -60,17 +60,22 @@ class Customer
     # find the ones authored by self
     # return length of array
 
-    Review.all.select do |rev|
-      rev.author == self
-    end.length
+    self.reviews.length
   end
 
   def restaurants
     # - Returns a **unique** array of all restaurants a customer has reviewed
-    my_reviews = Review.all.select do |rev|
+    # my_reviews = Review.all.select do |rev|
+    #   rev.author == self
+    # end
+
+    self.reviews.map { |rev| rev.restaurant }.uniq
+  end
+
+  def reviews
+    # Wrote this to not repeat myself in other methods.
+    Review.all.select do |rev|
       rev.author == self
     end
-
-    my_reviews.map { |rev| rev.restaurant }.uniq
   end
 end
